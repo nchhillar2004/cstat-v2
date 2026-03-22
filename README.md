@@ -1,6 +1,16 @@
 # CSTAT
 
-simple code analysis tool.
+fast and simple code analysis tool written in C.
 
-re-engineering CSTAT completely in C.
-without using AI this time.
+## modules
+in `src/`
+
+implemented:
+- custom data structures: dynamic array
+
+todo:
+- directory scanner
+- language detector
+- file io
+- code analyzer
+- output formatter
