@@ -1,23 +1,21 @@
-#include "list.h"
 #include <stdio.h>
+#include "darray.h"
 
 int main(int argc, char** argv) {
-    if (argc == 0) {
+    if (argc < 2) {
         puts("No elements to append");
         return 0;
     }
 
-    List list;
-    list_init(&list, sizeof(char*));
-    for (int i = 0; i < argc; i++) 
-        list_append(&list, &argv[i]);
+    DynamicArray flags = darray_init(char*);
 
-    for (size_t i = 0; i < list.count; i++) {
-        char* val = ((char**)list.items)[i];
-        printf("%s\n", val);
-    }
+    for (int i = 1; i < argc; i++) 
+        darray_append(&flags, &argv[i]);
 
-    list_free(&list);
+    for (size_t i = 0; i < flags.count; i++)
+        printf("%s\n", darray_get(char*, flags, i));
+
+    darray_free(&flags);
 
     return 0;
 }

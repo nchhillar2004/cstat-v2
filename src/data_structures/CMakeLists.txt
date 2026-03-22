@@ -1,5 +1,5 @@
 add_library(data_structures
-    list.c
+    darray.c
 )
 
 target_include_directories(data_structures PUBLIC
